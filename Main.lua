@@ -2,6 +2,7 @@
 
 	ROBLOX Weapons Kit Silent Aim by Exunys © CC0 1.0 Universal (2023)
 	https://github.com/Exunys
+	Edited by Rtxyy
 
 ]]
 
@@ -11,9 +12,20 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
 
-local function GetClosestPlayer()
-	local RequiredDistance, Part, Target = 1 / 0, "HumanoidRootPart"
 
+getgenv().FOVCricle , FOV = Drawing.new("Circle") , 160
+FOVCricle.Visible = true
+FOVCricle.Radius = FOV
+FOVCricle.Filled = false
+FOVCricle.Thickness = 1
+FOVCricle.Color = Color3.new(1, 1, 1)
+FOVCricle.Position = Vector2.new(Camera.ViewportSize.x / 2, Camera.ViewportSize.y / 2)
+
+
+
+local function GetClosestPlayer()
+	local RequiredDistance, Part, Target = FOV, "HumanoidRootPart"
+	print(RequiredDistance)
 	for _, v in next, Players.GetPlayers(Players) do
 		if v ~= LocalPlayer and v.Character[Part] then
 			local Vector, OnScreen = Camera.WorldToViewportPoint(Camera, v.Character[Part].Position)
