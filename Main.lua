@@ -25,7 +25,6 @@ FOVCricle.Position = Vector2.new(Camera.ViewportSize.x / 2, Camera.ViewportSize.
 
 local function GetClosestPlayer()
 	local RequiredDistance, Part, Target = FOV, "HumanoidRootPart"
-	print(RequiredDistance)
 	for _, v in next, Players.GetPlayers(Players) do
 		if v ~= LocalPlayer and v.Character[Part] then
 			local Vector, OnScreen = Camera.WorldToViewportPoint(Camera, v.Character[Part].Position)
